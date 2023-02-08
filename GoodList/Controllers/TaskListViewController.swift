@@ -14,7 +14,7 @@ class TaskListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
 }
 
@@ -28,6 +28,7 @@ extension TaskListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TaskTableViewCell", for: indexPath)
+        
         return cell
     }
 }
