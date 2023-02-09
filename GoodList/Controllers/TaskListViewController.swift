@@ -6,15 +6,29 @@
 //
 
 import UIKit
+import RxSwift
 
 class TaskListViewController: UIViewController {
 
     @IBOutlet weak var prioritySegmentedControl: UISegmentedControl!
     @IBOutlet weak var tableView: UITableView!
     
+    let disposeBag = DisposeBag()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let navVC = segue.destination as? UINavigationController,
+              let addTVC = navVC.viewControllers.first as? AddTaskViewController else { return }
+        
+        addTVC.taskSubjectObserver
+            .subscribe(onNext: { task in
+                print(task)
+            })
+            .disposed(by: disposeBag)
     }
 }
 

@@ -59,7 +59,7 @@
                     <navigationItem key="navigationItem" title="GoodList" id="Zfo-Ch-wfD">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="QrU-QV-7zQ">
                             <connections>
-                                <segue destination="x5v-7Q-JyY" kind="presentation" id="r2E-Ve-1OU"/>
+                                <segue destination="x5v-7Q-JyY" kind="presentation" identifier="AddTaskViewController" id="sik-zL-m4M"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -108,8 +108,16 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Add Task" id="eBd-SL-wDw">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="TNj-KG-Ub8"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="TNj-KG-Ub8">
+                            <connections>
+                                <action selector="save:" destination="gzb-va-Kqd" id="PQ8-Lo-9Ae"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="prioritySegmentedControl" destination="ESG-dz-Yf8" id="WuW-eq-Dih"/>
+                        <outlet property="taskTitleTextField" destination="ecj-QH-mKt" id="3ZV-vn-mmL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jYB-0a-UQ3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -138,6 +146,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="x5v-7Q-JyY" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="BPu-YT-P6h"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="lO2-dF-e8v">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>

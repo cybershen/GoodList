@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DEA022042994DEA600EBC891 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = DEA022032994DEA600EBC891 /* RxCocoa */; };
+		DEA022062994DEA600EBC891 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = DEA022052994DEA600EBC891 /* RxRelay */; };
+		DEA022082994DEA600EBC891 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = DEA022072994DEA600EBC891 /* RxSwift */; };
 		DEDEB46629941DB60010D077 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDEB46529941DB60010D077 /* AppDelegate.swift */; };
 		DEDEB46829941DB60010D077 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDEB46729941DB60010D077 /* SceneDelegate.swift */; };
 		DEDEB46D29941DB60010D077 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEDEB46B29941DB60010D077 /* Main.storyboard */; };
@@ -14,6 +17,7 @@
 		DEDEB47229941DB70010D077 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEDEB47029941DB70010D077 /* LaunchScreen.storyboard */; };
 		DEDEB47B29941E930010D077 /* TaskListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDEB47A29941E930010D077 /* TaskListViewController.swift */; };
 		DEDEB47D2994239A0010D077 /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDEB47C2994239A0010D077 /* AddTaskViewController.swift */; };
+		DEDEB4802994254A0010D077 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDEB47F2994254A0010D077 /* Task.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +30,7 @@
 		DEDEB47329941DB70010D077 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DEDEB47A29941E930010D077 /* TaskListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListViewController.swift; sourceTree = "<group>"; };
 		DEDEB47C2994239A0010D077 /* AddTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
+		DEDEB47F2994254A0010D077 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +38,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DEA022082994DEA600EBC891 /* RxSwift in Frameworks */,
+				DEA022062994DEA600EBC891 /* RxRelay in Frameworks */,
+				DEA022042994DEA600EBC891 /* RxCocoa in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,6 +66,7 @@
 		DEDEB46429941DB60010D077 /* GoodList */ = {
 			isa = PBXGroup;
 			children = (
+				DEDEB47E299425370010D077 /* Models */,
 				DEDEB47929941E780010D077 /* Controllers */,
 				DEDEB46529941DB60010D077 /* AppDelegate.swift */,
 				DEDEB46729941DB60010D077 /* SceneDelegate.swift */,
@@ -78,6 +87,14 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		DEDEB47E299425370010D077 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				DEDEB47F2994254A0010D077 /* Task.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -94,6 +111,11 @@
 			dependencies = (
 			);
 			name = GoodList;
+			packageProductDependencies = (
+				DEA022032994DEA600EBC891 /* RxCocoa */,
+				DEA022052994DEA600EBC891 /* RxRelay */,
+				DEA022072994DEA600EBC891 /* RxSwift */,
+			);
 			productName = GoodList;
 			productReference = DEDEB46229941DB60010D077 /* GoodList.app */;
 			productType = "com.apple.product-type.application";
@@ -122,6 +144,9 @@
 				Base,
 			);
 			mainGroup = DEDEB45929941DB60010D077;
+			packageReferences = (
+				DEA022022994DEA600EBC891 /* XCRemoteSwiftPackageReference "RxSwift" */,
+			);
 			productRefGroup = DEDEB46329941DB60010D077 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -151,6 +176,7 @@
 			files = (
 				DEDEB46629941DB60010D077 /* AppDelegate.swift in Sources */,
 				DEDEB47D2994239A0010D077 /* AddTaskViewController.swift in Sources */,
+				DEDEB4802994254A0010D077 /* Task.swift in Sources */,
 				DEDEB46829941DB60010D077 /* SceneDelegate.swift in Sources */,
 				DEDEB47B29941E930010D077 /* TaskListViewController.swift in Sources */,
 			);
@@ -370,6 +396,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		DEA022022994DEA600EBC891 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DEA022032994DEA600EBC891 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DEA022022994DEA600EBC891 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		DEA022052994DEA600EBC891 /* RxRelay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DEA022022994DEA600EBC891 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxRelay;
+		};
+		DEA022072994DEA600EBC891 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DEA022022994DEA600EBC891 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = DEDEB45A29941DB60010D077 /* Project object */;
 }
