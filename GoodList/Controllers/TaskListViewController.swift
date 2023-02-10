@@ -18,9 +18,17 @@ class TaskListViewController: UIViewController {
     
     private var tasks = BehaviorRelay<[Task]>(value: [])
     
+    private var filteredTasks: [Task] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
+    
+    @IBAction func priorityValueChanged(_ sender: UISegmentedControl) {
+        let priority = Priority(rawValue: sender.selectedSegmentIndex - 1)
+        filterTasks(by: priority)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -34,10 +42,26 @@ class TaskListViewController: UIViewController {
                 
                 var existingTasks = self.tasks.value
                 existingTasks.append(task)
-                self.tasks.accept(existingTasks)
                 
+                self.tasks.accept(existingTasks)
+                self.filterTasks(by: priority)
             })
             .disposed(by: disposeBag)
+    }
+    
+    private func filterTasks(by priority: Priority?) {
+        if priority == nil {
+            filteredTasks = tasks.value
+        } else {
+            tasks.map { tasks in
+                return tasks.filter { $0.priority == priority! }
+            }
+            .subscribe(onNext: { [weak self] tasks in
+                self?.filteredTasks = tasks
+                print(tasks)
+            })
+            .disposed(by: disposeBag)
+        }
     }
 }
 
